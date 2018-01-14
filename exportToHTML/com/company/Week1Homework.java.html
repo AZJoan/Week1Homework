@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>Week1Homework.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,0,255); }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Week1Homework.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.company; 
+</span><span class="s2">//    Create a calculator! One that can add, subtract, multiply, and divide.</span><span class="s1"> 
+</span><span class="s2">//    First ask the user to enter a number.</span><span class="s1"> 
+</span><span class="s2">//    Then ask them what operator they want to use (&quot;+&quot;, &quot;-&quot;, &quot;*&quot;, or &quot;/&quot;).</span><span class="s1"> 
+</span><span class="s2">//    Finally, ask them to enter a second number.</span><span class="s1"> 
+</span><span class="s2">//    Display the corresponding calculation to the screen.</span><span class="s1"> 
+</span><span class="s2">//</span><span class="s1"> 
+</span><span class="s2">//    Feel free to take the calculator above and beyond, here are some ideas:</span><span class="s1"> 
+</span><span class="s2">//   Ask the user if they would like to do another calculation,</span><span class="s1"> 
+</span><span class="s2">//  Look into 'try/catch' to handle entries that were unexpected,</span><span class="s1"> 
+</span><span class="s2">//  Carry the calculation over after an original calculation was done.</span><span class="s1"> 
+</span><span class="s2">//   For example, 2 + 2 = 4, then prompt the user to use another operator (+, -, *, or /).</span><span class="s1"> 
+</span><span class="s2">//    Then take the previous answer, with the new operator, and a new number for a new calculation.</span><span class="s1"> 
+</span><span class="s2">//  With the above scenario, add a 'clear' entry option that starts the application over.</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">javafx.util.StringConverter; 
+ 
+</span><span class="s0">import </span><span class="s1">java.util.Scanner; 
+ 
+</span><span class="s0">public class </span><span class="s1">Week1Homework { 
+ 
+    </span><span class="s0">public static void </span><span class="s1">main(String[] args) { 
+ 
+        </span><span class="s0">int </span><span class="s1">intResult = </span><span class="s3">0</span><span class="s1">; 
+        </span><span class="s0">int </span><span class="s1">intFirst = </span><span class="s3">0</span><span class="s1">; 
+        </span><span class="s0">int </span><span class="s1">intSecond = </span><span class="s3">0</span><span class="s1">; 
+ 
+        String answer1 = </span><span class="s4">&quot; &quot;</span><span class="s1">; 
+        String answer2 = </span><span class="s4">&quot; &quot;</span><span class="s1">; 
+        String firstNumber = </span><span class="s4">&quot; &quot;</span><span class="s1">; 
+        String secondNumber = </span><span class="s4">&quot; &quot;</span><span class="s1">; 
+        String operator = </span><span class="s4">&quot; &quot;</span><span class="s1">; 
+        String saveResult = </span><span class="s4">&quot; &quot;</span><span class="s1">; 
+ 
+        Boolean cont1; 
+        Boolean cont2; 
+        Boolean firstIn; 
+ 
+        Scanner sc = </span><span class="s0">new </span><span class="s1">Scanner(System.in); 
+        System.out.println(</span><span class="s4">&quot;Welcome to the Calculator Application&quot;</span><span class="s1">); 
+ 
+        cont1 = </span><span class="s0">true</span><span class="s1">; 
+        </span><span class="s0">while </span><span class="s1">(cont1) { 
+ 
+            System.out.println(</span><span class="s4">&quot;Would you like to do a calculation?&quot;</span><span class="s1">); 
+            answer1 = sc.nextLine(); 
+            firstIn = </span><span class="s0">true</span><span class="s1">; 
+ 
+            </span><span class="s0">if </span><span class="s1">(answer1.equalsIgnoreCase(</span><span class="s4">&quot;yes&quot;</span><span class="s1">) || answer1.equalsIgnoreCase(</span><span class="s4">&quot;y&quot;</span><span class="s1">)) { 
+                cont1 = </span><span class="s0">true</span><span class="s1">; 
+ 
+                </span><span class="s2">// after user has entered a first calculation ask if user wants to continue calculating on result</span><span class="s1"> 
+                cont2 = </span><span class="s0">true</span><span class="s1">; 
+                </span><span class="s0">while </span><span class="s1">(cont2) { 
+ 
+                    </span><span class="s0">if </span><span class="s1">(firstIn.equals(</span><span class="s0">false</span><span class="s1">)) { 
+                        System.out.println(</span><span class="s4">&quot;Would you like to continue calculations on your previous result?&quot;</span><span class="s1">); 
+                        answer2 = sc.nextLine(); 
+ 
+                        </span><span class="s0">if </span><span class="s1">(answer2.equalsIgnoreCase(</span><span class="s4">&quot;yes&quot;</span><span class="s1">) || answer2.equalsIgnoreCase(</span><span class="s4">&quot;y&quot;</span><span class="s1">)) { 
+                            cont2 = </span><span class="s0">true</span><span class="s1">; 
+                            firstIn = </span><span class="s0">false</span><span class="s1">; 
+                            firstNumber = saveResult; 
+ 
+                        } </span><span class="s0">else </span><span class="s1">{ 
+                            cont2 = </span><span class="s0">false</span><span class="s1">; 
+                            firstIn = </span><span class="s0">true</span><span class="s1">; 
+                            System.out.println(</span><span class="s4">&quot;Input First Number:&quot;</span><span class="s1">); 
+                            firstNumber = sc.nextLine(); 
+                        } 
+ 
+                    } </span><span class="s0">else </span><span class="s1">{ 
+                        firstIn = </span><span class="s0">true</span><span class="s1">; 
+                        System.out.println(</span><span class="s4">&quot;Input First Number:&quot;</span><span class="s1">); 
+                        firstNumber = sc.nextLine(); 
+                    } 
+ 
+                    System.out.println(</span><span class="s4">&quot;Input one of the following valid operators: +, -, *, / :&quot;</span><span class="s1">); 
+                    operator = sc.nextLine(); 
+ 
+                    System.out.println(</span><span class="s4">&quot;Input Second Number:&quot;</span><span class="s1">); 
+                    secondNumber = sc.nextLine(); 
+ 
+                    </span><span class="s0">try </span><span class="s1">{ 
+                        intFirst = Integer.parseInt(firstNumber); 
+                        intSecond = Integer.parseInt(secondNumber); 
+ 
+                        </span><span class="s0">if </span><span class="s1">(operator.equals(</span><span class="s4">&quot;+&quot;</span><span class="s1">)) { 
+                            intResult = (intFirst + intSecond); 
+                        } </span><span class="s0">else if </span><span class="s1">(operator.equals(</span><span class="s4">&quot;-&quot;</span><span class="s1">)) { 
+                            intResult = (intFirst - intSecond); 
+                        } </span><span class="s0">else if </span><span class="s1">(operator.equals(</span><span class="s4">&quot;*&quot;</span><span class="s1">)) { 
+                            intResult = (intFirst * intSecond); 
+                        } </span><span class="s0">else if </span><span class="s1">(operator.equals(</span><span class="s4">&quot;/&quot;</span><span class="s1">)) { 
+                            intResult = (intFirst) / (intSecond); 
+                        } 
+                        System.out.println(</span><span class="s4">&quot;This is your result: &quot;</span><span class="s1"> 
+                                + intFirst + </span><span class="s4">&quot; &quot; </span><span class="s1">+ operator + </span><span class="s4">&quot; &quot; </span><span class="s1">+ intSecond + </span><span class="s4">&quot; = &quot; </span><span class="s1">+ intResult); 
+                        saveResult = Integer.toString(intResult); 
+                        System.out.println(); 
+ 
+                    } </span><span class="s0">catch </span><span class="s1">(ArithmeticException e) { 
+                        System.out.println(</span><span class="s4">&quot;Warning: Arithmetic Error occurred. Please try again.&quot;</span><span class="s1">); 
+                    } </span><span class="s0">catch </span><span class="s1">(Exception e) { 
+                        System.out.println(</span><span class="s4">&quot;Warning: Please enter a valid number.&quot;</span><span class="s1">); 
+                    } 
+ 
+                }  </span><span class="s2">// while cont2 = true</span><span class="s1"> 
+             } </span><span class="s0">else</span><span class="s1">{ 
+                cont1 = </span><span class="s0">false</span><span class="s1">; 
+            } </span><span class="s2">// if answer1 = yes</span><span class="s1"> 
+ 
+        } </span><span class="s2">// while cont1 = true</span><span class="s1"> 
+    }  </span><span class="s2">// public static</span><span class="s1"> 
+ 
+} </span><span class="s2">// public class</span><span class="s1"> 
+ 
+ 
+</span></pre>
+</body>
+</html>
